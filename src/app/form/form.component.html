@@ -1,0 +1,92 @@
+<form (ngSubmit)="onSubmit()" #ficheForm="ngForm">
+  <h2>FICHE D'IDENTIFICATION DU VEHICULE</h2>
+
+  <label>N° COMMANDE DE TRAVAUX *</label>
+  <input type="text" [(ngModel)]="fiche.CommandeTravaux" name="CommandeTravaux" required>
+
+  <label>NOM DE L'AGENT *</label>
+  <input type="text" [(ngModel)]="fiche.Agent" name="Agent" required>
+
+  <label>NOM ET PRENOM *</label>
+  <input type="text" [(ngModel)]="fiche.NomPrenom" name="NomPrenom" required>
+
+  <label>TELEPHONE *</label>
+  <input type="tel" [(ngModel)]="fiche.Telephone" name="Telephone" required>
+
+  <label>N° D'IMMATRICULATION</label>
+  <input type="text" [(ngModel)]="fiche.Immatriculation" name="Immatriculation">
+
+  <label>V.I.N *</label>
+  <input type="text" [(ngModel)]="fiche.VIN" name="VIN" required>
+
+  <label>KILOMETRAGE *</label>
+  <input type="number" [(ngModel)]="fiche.Kilometrage" name="Kilometrage" required>
+
+  <label>MOTORISATION *</label>
+  <select [(ngModel)]="fiche.Motorisation" name="Motorisation" required>
+    <option value="ESSENCE">ESSENCE</option>
+    <option value="DIESEL">DIESEL</option>
+    <option value="GAZ">GAZ</option>
+    <option value="HYBRIDE">HYBRIDE</option>
+    <option value="ELECTRIQUE">ELECTRIQUE</option>
+  </select>
+
+  <input type="hidden" [(ngModel)]="fiche.IdRendezVous" name="IdRendezVous">
+
+  <!-- Tour du véhicule -->
+  <h3>Tour du véhicule</h3>
+  <label>Plaques / Police</label>
+  <input type="text" [(ngModel)]="fiche.PlaquesPolice" name="PlaquesPolice">
+
+  <label>Vitres / Pare-brise</label>
+  <input type="text" [(ngModel)]="fiche.VitresPareBrise" name="VitresPareBrise">
+
+  <label>Balais / Essuie-glace</label>
+  <input type="text" [(ngModel)]="fiche.BalaisEssuieGlace" name="BalaisEssuieGlace">
+
+  <label>Eclairage</label>
+  <input type="text" [(ngModel)]="fiche.Eclairage" name="Eclairage">
+
+  <label>Rétroviseurs</label>
+  <input type="text" [(ngModel)]="fiche.Retroviseurs" name="Retroviseurs">
+
+  <label>Pneus</label>
+  <input type="text" [(ngModel)]="fiche.Pneus" name="Pneus">
+
+  <label>Commentaires tour véhicule</label>
+  <textarea [(ngModel)]="fiche.CommentaireTour" name="CommentaireTour"></textarea>
+
+  <!-- 40 points de contrôle -->
+  <h3>40 points de contrôle</h3>
+  <label>Contrôle véhicule</label>
+  <textarea [(ngModel)]="fiche.ControleVehicule" name="ControleVehicule"></textarea>
+
+  <label>Commentaires 40 points</label>
+  <textarea [(ngModel)]="fiche.Commentaire40Points" name="Commentaire40Points"></textarea>
+
+  <!-- Sous le capot -->
+  <h3>Sous le capot</h3>
+  <label>Contrôle capot</label>
+  <textarea [(ngModel)]="fiche.ControleCapot" name="ControleCapot"></textarea>
+
+  <label>Commentaires capot</label>
+  <textarea [(ngModel)]="fiche.CommentaireCapot" name="CommentaireCapot"></textarea>
+
+  <!-- Sous le véhicule -->
+  <h3>Sous le véhicule</h3>
+  <label>Contrôle sous véhicule</label>
+  <textarea [(ngModel)]="fiche.ControleSousVehicule" name="ControleSousVehicule"></textarea>
+
+  <label>Commentaires sous véhicule</label>
+  <textarea [(ngModel)]="fiche.CommentaireSousVehicule" name="CommentaireSousVehicule"></textarea>
+
+  <!-- Autres prestations -->
+  <h3>Autres prestations</h3>
+  <label>Autres prestations</label>
+  <textarea [(ngModel)]="fiche.AutresPrestations" name="AutresPrestations"></textarea>
+
+  <label>Commentaires prestations</label>
+  <textarea [(ngModel)]="fiche.CommentairePrestations" name="CommentairePrestations"></textarea>
+
+  <button type="submit">Envoyer</button>
+</form>

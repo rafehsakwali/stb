@@ -1,0 +1,48 @@
+<div class="admin-container">
+  <div class="header">
+    <h1>Gestion des Rendez-Vous</h1>
+    <p>Visualisez et gérez les rendez-vous à venir</p>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom Client</th>
+          <th>Téléphone</th>
+          <th>Véhicule</th>
+          <th>Date Rendez-Vous</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rdv of rendezVousList">
+          <td>{{ rdv.idRendezVous }}</td>
+          <td>{{ rdv.nomClient }}</td>
+          <td>{{ rdv.telephone }}</td>
+          <td>{{ rdv.vehicule }}</td>
+          <td>{{ rdv.dateRendezVous | date:'short' }}</td>
+          <td>
+  <!-- Si le rendez-vous est dans le futur -->
+  <button
+    class="btn btn-success"
+    *ngIf="!isPast(rdv.dateRendezVous)"
+    [routerLink]="['/form', rdv.idRendezVous]">
+    Remplir formulaire
+  </button>
+
+  <!-- Si le rendez-vous est passé -->
+  <button
+    class="btn btn-primary"
+    *ngIf="isPast(rdv.dateRendezVous)"
+    [routerLink]="['/fiche', rdv.idRendezVous]">
+    Voir la fiche
+  </button>
+</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

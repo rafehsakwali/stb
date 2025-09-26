@@ -1,0 +1,63 @@
+<h2>Gestion des Rendez-Vous</h2>
+
+<div class="blocks-row">
+  <!-- Bloc Formulaire -->
+  <div class="block-card">
+    <h3>Ajouter un Rendez-Vous</h3>
+    <form #rdvForm="ngForm" (ngSubmit)="onSubmit(rdvForm)">
+      <div class="form-group">
+        <label>Nom du Client</label>
+        <input type="text" name="nomClient" [(ngModel)]="newRdv.nomClient" required>
+      </div>
+
+      <div class="form-group">
+        <label>Téléphone</label>
+        <input type="text" name="telephone" [(ngModel)]="newRdv.telephone">
+      </div>
+
+      <div class="form-group">
+        <label>Véhicule</label>
+        <input type="text" name="vehicule" [(ngModel)]="newRdv.vehicule">
+      </div>
+
+      <div class="form-group">
+        <label>Date du Rendez-Vous</label>
+        <input type="datetime-local" name="dateRendezVous" [(ngModel)]="newRdv.dateRendezVous" required>
+      </div>
+
+      <button type="submit">Ajouter Rendez-Vous</button>
+    </form>
+  </div>
+
+  <!-- Bloc Liste -->
+  <div class="block-card">
+    <h3>Liste des Rendez-Vous</h3>
+    <div *ngIf="loading">Chargement...</div>
+    <table *ngIf="!loading" class="rdv-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom Client</th>
+          <th>Téléphone</th>
+          <th>Véhicule</th>
+          <th>Date</th>
+          <th>Fiche</th> <!-- Titre pour la colonne du bouton -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rdv of rendezVousList">
+          <td>{{ rdv.idRendezVous }}</td>
+          <td>{{ rdv.nomClient }}</td>
+          <td>{{ rdv.telephone }}</td>
+          <td>{{ rdv.vehicule }}</td>
+          <td>{{ rdv.dateRendezVous | date:'short' }}</td>
+          <td>
+            <button class="btn btn-primary" [routerLink]="['/fiche', rdv.idRendezVous]">
+              Voir la fiche
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

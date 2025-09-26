@@ -1,0 +1,68 @@
+<div class="rafeh">
+  <div class="leftsection">
+    <div class="left-content">
+      <h1>Bienvenue Admin !</h1>
+    </div>
+  </div>
+
+  <div class="login-wrap">
+    <div class="login-html">
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+      <label for="tab-1" class="tab">Sign In</label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up">
+      <label for="tab-2" class="tab">Sign Up</label>
+
+      <div class="login-form">
+        <!-- Sign In Form -->
+        <form class="sign-in-htm" (ngSubmit)="onLogin()" #loginForm="ngForm">
+          <div class="group">
+            <label for="user-signinn" class="label">Username</label>
+            <input id="user-signinn" name="loginUsername" [(ngModel)]="loginData.Username" type="text" class="input" required>
+          </div>
+          <div class="group">
+            <label for="pass-signinn" class="label">Password</label>
+            <input id="pass-signinn" name="loginPassword" [(ngModel)]="loginData.Password" type="password" class="input" required>
+          </div>
+          <div class="group">
+            <input id="check" type="checkbox" class="check" checked>
+            <label for="check"><span class="icon"></span> Keep me signed in</label>
+          </div>
+          <div class="group">
+            <input type="submit" class="button" value="Sign In">
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <a routerLink="/forgot" routerLinkActive="router-link-active">Forgot Password?</a>
+          </div>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form class="sign-up-htm" (ngSubmit)="onRegister()" #registerForm="ngForm">
+          <div class="group">
+            <label for="user-signup" class="label">Username</label>
+            <input id="user-signup" name="username" [(ngModel)]="registerData.Username" type="text" class="input" required>
+          </div>
+          <div class="group">
+            <label for="pass-signup" class="label">Password</label>
+            <input id="pass-signup" name="password" [(ngModel)]="registerData.Password" type="password" class="input" required>
+          </div>
+          <div class="group">
+            <label for="pass-repeat" class="label">Repeat Password</label>
+            <input id="pass-repeat" name="confirmPassword" [(ngModel)]="registerData.ConfirmPassword" type="password" class="input" required>
+          </div>
+          <div class="group">
+            <label for="email" class="label">Email Address</label>
+            <input id="email" name="email" [(ngModel)]="registerData.Email" type="email" class="input" required>
+          </div>
+          <div class="group">
+            <input type="submit" class="button" value="Sign Up">
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <label for="tab-1">Already a member?</label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

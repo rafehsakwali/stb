@@ -1,0 +1,621 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Assurez-vous que le corps prend toute la largeur */
+    overflow-x: hidden; /* Évite le défilement horizontal */
+}
+
+/* Global Styles */
+:host {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #696969 ; /* Couleur de fond */
+
+}
+
+.hero2-section {
+  display: flex;
+  position: relative;
+  background-image: url('/assets/images/hi66.webp'); /* Remplacez par le chemin de votre image */
+  background-attachment: fixed; /* Image reste fixe */
+  background-size: cover; /* L'image couvre toute la section */
+  background-position: center;
+  text-align: center;
+  height: 63vh;
+  padding: 100px ; /* Espacement vertical pour le contenu */
+  color: white; /* Texte en blanc pour contraster */
+  z-index: 1; /* Assurez que le contenu reste au-dessus */
+}
+
+.hero2-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0; /* Commence à partir du début */
+  width: 100%; /* Prend la moitié gauche */
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Noir transparent uniforme */
+    backdrop-filter: blur(4px); /* Applique le flou */
+  z-index: -1; /* Place la couche derrière le contenu */
+}
+
+.welcome-container {
+  flex: 1.2; /* Prend 50% de l'espace */
+  display: flex;
+  align-items: center; /* Centrer verticalement */
+  justify-content: right; /* Centrer horizontalement */
+  text-align: right;
+  color: #fff; /* Texte en blanc pour contraster */
+  padding: 20px; /* Espacement */
+}
+/*
+.counting {
+	flex:0.75;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Space items evenly
+  align-items: center;
+  color: white;
+  padding: 40px; /* Padding
+}
+
+.counting-text {
+  flex: 0 0 45%; /* Each item takes up about 45% of the width
+  text-align: center; /* Center text
+  margin: 10px; /* Add some margin for spacing
+}
+.counting-text h1 {
+    font-size: 2.5em; /* Taille de la police douce
+    margin: 0; /* Supprimer la marge par défaut
+    line-height: 1.2; /* Espacement entre les lignes
+    font-weight: 300; /* Police non-grasse
+}
+
+.counting-text p {
+    font-size: 1.2em; /* Taille de la police pour le texte
+    margin: 10px 0; /* Ajouter un espacement vertical
+    line-height: 1.5; /* Espacement entre les lignes
+    letter-spacing: 0.5px;
+}
+*/
+
+.welcome-text h1 {
+  font-size: 3em; /* Augmenter la taille de la police */
+  margin: 0; /* Supprimer la marge par défaut */
+  line-height: 1.5; /* Espacement entre les lignes */
+  margin-left: 1px; /* Espacement entre les éléments de la liste */
+  text-align: right;
+  font-family: 'Arial', sans-serif; /* Choisissez une police fine */
+  opacity: 0; /* Commence invisible */
+  transform: translateY(-20px); /* Déplace légèrement vers le haut */
+  animation: fadeInUp 1s forwards; /* Applique l'animation */
+}
+
+.welcome-text p {
+  text-align: right;
+  font-size: 2em; /* Augmenter la taille de la police */
+  font-family: 'Arial', sans-serif; /* Choisissez une police fine */
+  margin: 10px 0; /* Ajouter un espacement vertical */
+  line-height: 1.5; /* Espacement entre les lignes */
+  letter-spacing: 1px; /* Espacement entre les lettres pour une meilleure lisibilité */
+  opacity: 0; /* Commence invisible */
+  transform: translateY(20px); /* Déplace légèrement vers le bas */
+  animation: fadeInUp 1s forwards; /* Applique l'animation */
+  animation-delay: 0.5s; /* Délai pour le paragraphe */
+}
+
+/* Définition de l'animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Rendre visible */
+    transform: translateY(0); /* Remettre à la position d'origine */
+  }
+}
+
+/* Styles pour la barre de navigation */
+.navbar {
+    background-color:rgba(24, 51, 66, 0.2); /* Fond blanc semi-transparent */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0); /* Ombre portée */
+    position: absolute; /* Positionner la barre de navigation */
+    width: 100%; /* Prendre toute la largeur */
+    z-index: 10; /* Assurer que la barre est au-dessus de l'image de fond */
+
+}
+
+.navbar ul {
+    list-style: none; /* Supprimer les puces */
+    margin: 0; /* Supprimer les marges */
+    padding: 10px 10px; /* Espacement interne */
+    display: flex; /* Utiliser flexbox pour l'alignement */
+    justify-content: center; /* Aligner à droite */
+	    margin-left: 10px; /* Espacement entre les éléments de la liste */
+
+}
+
+.navbar ul li {
+    margin-left: 20px; /* Espacement entre les éléments de la liste */
+}
+
+.navbar ul li a {
+    text-decoration: none; /* Supprimer le soulignement */
+    color: #fff; /* Couleur du texte */
+    font-weight: 500; /* Poids de la police */
+}
+
+.navbar ul li a:hover {
+    color: black; /* Couleur au survol */
+}
+.separator {
+    margin: 0 10px; /* Espacement autour des séparateurs */
+    color: #fff; /* Couleur des séparateurs */
+    font-weight: bold; /* Épaisseur des séparateurs */
+}
+
+.content-section {
+  height: 10vh; /* 1/4 de la hauteur restante de la page */
+  display: flex; /* Utiliser flexbox pour centrer le contenu */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+  flex-direction: column; /* Aligner le texte et la ligne verticalement */
+  text-align: center; /* Centrer le texte */
+  background-color: #183342 ; /* Couleur de fond */
+}
+
+.content-section h2 {
+  font-weight: 300; /* Police fine */
+  color: white; /* Couleur bleu navy */
+  margin: 0; /* Supprime les marges par défaut */
+  padding-bottom: 10px; /* Espacement entre le texte et la ligne */
+  position: relative; /* Position relative pour le soulignement */
+}
+
+.content-section h2::after {
+  content: ''; /* Crée un élément après le texte */
+  display: block; /* Affiche l'élément comme un bloc */
+  width: 50%; /* Largeur de la ligne */
+  height: 2px; /* Épaisseur de la ligne */
+  background-color: #aaa; /* Couleur de la ligne (bleu navy) */
+  margin: 0 auto; /* Centre la ligne */
+  margin-top: 5px; /* Espacement au-dessus de la ligne */
+}
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Conteneur principal pour aligner À propos et Cartes */
+.container {
+  display: flex; /* Utiliser flexbox pour aligner les conteneurs */
+  justify-content: space-between; /* Espacement entre les conteneurs */
+  padding: 2rem; /* Ajoutez un padding pour éviter le collapsing */
+  border-top: 1px solid transparent;
+  gap: 20px; /* Une bordure transparente peut aussi fonctionner */
+}
+
+.cartes-container {
+  text-align: center;
+  max-width: 800px; /* Largeur maximale pour le conteneur des cartes */
+  background-color: rgba(255,255, 255, 0.1); /* Blanc transparent */
+  max-height: 400px;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Ombre pour un effet élégant */
+}
+
+
+.cartes-container h2 {
+  color: white;
+  margin-bottom: 1.5rem;
+    font-family: 'Arial', sans-serif;  /* Choix d'une police professionnelle */
+  font-size: 19px;
+}
+.carte {
+  flex: 0 0 auto; /* Empêche les cartes de se rétrécir */
+  width: 200px; /* Largeur fixe pour chaque carte */
+  margin-right: 1rem; /* Espacement entre les cartes */
+  padding: 1rem;
+  background-color: #c6dbe8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+
+}
+
+.carte img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.carte h3 {
+  color: #004080;
+  margin-top: 0.5rem;
+}
+
+.carte p {
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.carte a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #004080;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.carte a:hover {
+  background-color: #003060;
+}
+.carte-scroll {
+  display: flex;
+  overflow-x: auto; /* Permet le défilement horizontal */
+  padding: 1rem;
+}
+
+/* Styles pour la scrollbar */
+.carte-scroll::-webkit-scrollbar {
+  width: 8px; /* Largeur de la scrollbar */
+}
+
+.carte-scroll::-webkit-scrollbar-track {
+  background: #f4f4f4; /* Couleur de fond de la piste */
+  border-radius: 10px; /* Coins arrondis */
+}
+
+.carte-scroll::-webkit-scrollbar-thumb {
+  background: #004080; /* Couleur de la barre de défilement */
+  border-radius: 10px; /* Coins arrondis */
+}
+
+.carte-scroll::-webkit-scrollbar-thumb:hover {
+  background: #003060; /* Couleur de la barre de défilement au survol */
+}
+.text-section h1, h2{
+	text-align:center;
+
+}
+
+.press-container {
+  text-align: center;
+  max-width: 800px; /* Largeur maximale pour le conteneur des cartes */
+  background-color: rgba(255,255, 255, 0.1); /* Blanc transparent */
+  max-height: 400px;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Ombre pour un effet élégant */
+}
+
+.press-container h2 {
+  color:white;
+  margin-bottom: 1.5rem;
+    font-family: 'Arial', sans-serif;  /* Choix d'une police professionnelle */
+  font-size: 19px;
+
+}
+.actualite {
+  flex: 0 0 auto; /* Empêche les cartes de se rétrécir */
+  width: 200px; /* Largeur fixe pour chaque carte */
+  margin-right: 1rem; /* Espacement entre les cartes */
+  padding: 1rem;
+  background-color: #babfc7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.actualite img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+
+.actualite h3 {
+  color: #004080;
+  margin-top: 0.5rem;
+}
+
+.actualite p {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  color: #333;
+  margin: 0.5rem 0;
+}
+.container{
+  background-color: #183342 ; /* Couleur de fond */
+}
+.actualite a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #004080;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.actualite a:hover {
+  background-color: #003060;
+}
+.scroll {
+  display: flex;
+  overflow-x: auto; /* Permet le défilement horizontal */
+  padding: 1rem;
+}
+.scroll::-webkit-scrollbar {
+  width: 8px; /* Largeur de la scrollbar */
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: #f4f4f4; /* Couleur de fond de la piste */
+  border-radius: 10px; /* Coins arrondis */
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #004080; /* Couleur de la barre de défilement */
+  border-radius: 10px; /* Coins arrondis */
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: #003060; /* Couleur de la barre de défilement au survol */
+}
+
+/* Styles pour la section Inscrivez-vous */
+.inscription-section {
+  position: relative;
+
+  background-image: url('/assets/images/rse.jpeg'); /* Remplacez par le chemin de votre image */
+  background-attachment: fixed; /* Image reste fixe */
+  background-size: cover; /* L'image couvre toute la section */
+  background-position: center;
+  text-align: center;
+  padding: 100px 20px; /* Espacement vertical pour le contenu */
+  color: white; /* Texte en blanc pour contraster */
+  z-index: 1; /* Assurez que le contenu reste au-dessus */
+}
+
+.inscription-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ background-color: rgba(0, 0, 0, 0.4);
+   backdrop-filter: blur(3px); /* Applique le flou */
+
+ z-index: -1; /* Place la couche derrière le contenu */
+}
+
+
+.inscription-section {
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.inscription-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.inscription-content h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.inscription-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn-inscription {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1rem;
+  color: white;
+  background-color: #0072bc; /* Couleur du bouton */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn-inscription:hover {
+  background-color: #757882; /* Couleur au survol */
+}
+.text-section {
+  text-align: right;
+  margin-bottom: 2rem; /* Espacement entre le texte et le conteneur des cartes */
+}
+
+.cartes-section {
+  margin-top: 2rem; /* Espacement supplémentaire si nécessaire */
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.text2-section {
+    padding: 30px; /* Espacement interne */
+    max-width: 800px; /* Largeur maximale */
+    margin: 20px auto; /* Centrer horizontalement */
+    text-align: left; /* Aligner le texte à gauche */
+}
+.text2-section h1, h2{
+	text-align:center;
+
+}
+.text2-section h1 {
+    color: white; /* Texte blanc */
+    font-size: 2rem; /* Taille de la police pour le titre principal */
+    margin-bottom: 10px;
+}
+
+.text2-section h2 {
+    color: #b2d4e9; /* Bleu clair pour le sous-titre */
+    font-size: 1.5rem; /* Taille du sous-titre */
+    margin-bottom: 15px;
+}
+
+.text2-section p {
+    line-height: 1,6; /* Espacement entre les lignes */
+    font-size: 19px; /* Taille de la police */
+    color: white; /* Texte blanc pour le contraste */
+    font-family: 'Arial', sans-serif; /* Remplacez par une police professionnelle de votre choix */
+    font-weight: 300; /* Espace sous chaque paragraphe */
+}
+
+.btn-lire-plus {
+    display: inline-block;
+    padding: 10px 20px; /* Espacement interne */
+    background-color: #aaa; /* Bleu clair */
+    color: #004080; /* Texte bleu foncé */
+    text-decoration: none; /* Supprimer le soulignement */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s ease; /* Animation sur hover */
+}
+
+.btn-lire-plus:hover {
+    background-color: white; /* Couleur au survol */
+    color: #aaa; /* Texte au survol */
+}
+
+
+.text-section h1{
+	color:white;
+}
+.text-section h2{
+	color:#c8d6f8;
+
+}
+.text-section p{
+  line-height: 1.6!;  /* Espacement entre les lignes, ajustez le chiffre pour obtenir l'effet désiré */
+  font-size: 19px;  /* Taille de la police appropriée pour un texte professionnel */
+  color: white;  /* Couleur du texte pour un contraste agréable */
+  margin-bottom: 15px;  /* Un peu d'espace sous chaque paragraphe */
+  text-align:left;
+
+}
+.btn-lire-plus {
+  display: inline-block; /* Permet d'ajouter du padding et de la marge */
+  background-color: white; /* Couleur de fond */
+  color: gray; /* Couleur du texte */
+  padding: 10px 20px; /* Espacement interne */
+  border: none; /* Pas de bordure */
+  border-radius: 5px; /* Coins arrondis */
+  text-decoration: none; /* Pas de soulignement */
+  font-size: 16px; /* Taille de la police */
+  position: relative; /* Nécessaire pour le pseudo-élément */
+  transition: background-color 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+.btn-lire-plus:hover {
+  background-color: black; /* Couleur de fond au survol */
+}
+
+.btn-lire-plus::after {
+  content: '→'; /* Flèche après le texte */
+  margin-left: 10px; /* Espacement entre le texte et la flèche */
+  font-size: 18px; /* Taille de la flèche */
+  transition: transform 0.3s ease; /* Transition pour l'effet de survol */
+}
+.container2 {
+    display: flex; /* Utiliser flexbox pour aligner les conteneurs */
+    justify-content: space-between; /* Espacement entre les conteneurs */
+    padding: 2rem; /* Ajoutez un padding pour éviter le collapsing */
+    gap: 10px; /* Une bordure transparente peut aussi fonctionner */
+    background-color: #757882;
+}
+
+.square-container {
+    position: relative;
+    max-height: 600px; /* Ajustez la hauteur selon vos besoins */
+    width: 100%; /* Ajustez la largeur selon vos besoins */
+    overflow: hidden; /* Masquer le débordement */
+    background-image: url('/assets/images/rse.jpeg'); /* Remplacez par votre URL d'image */
+    background-size: cover; /* Couvre tout le conteneur */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Évite la répétition de l'image */
+    display: flex; /* Utiliser flexbox pour la disposition */
+}
+
+.image-overlay {
+    position: relative; /* Positionner par rapport à son parent */
+    flex: 1; /* Prendre 50% de la largeur */
+    background: rgba(0, 0, 0, 0.2); /* Noir semi-transparent */
+    display: flex; /* Utiliser flexbox pour centrer le titre */
+    align-items: center; /* Centrer verticalement */
+    justify-content: center; /* Centrer horizontalement */
+    color: #fff; /* Couleur du texte */
+    font-family: 'Arial', sans-serif; /* Police */
+    font-size: 24px; /* Taille de la police */
+}
+
+.yes-container {
+    position: relative; /* Assurer que le texte est au-dessus de l'overlay */
+    flex: 1; /* Prendre 50% de la largeur */
+    padding: 25px; /* Ajouter plus de rembourrage pour un meilleur espacement */
+    font-size: 20px; /* Taille de la police adaptée pour le professionnalisme */
+    font-family: 'Arial', sans-serif; /* Remplacez par une police professionnelle de votre choix */
+    font-weight: 300; /* Police fine */
+    color: #f8f9fa; /* Couleur légèrement plus douce pour un meilleur contraste */
+    text-align: left; /* Texte aligné à gauche pour un style formel */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Ajouter une ombre subtile pour la décoration */
+    background: rgba(0, 0, 0, 0.3); /* Fond semi-transparent pour améliorer la lisibilité */
+	backdrop-filter: blur(4px); /* Appliquer un flou */
+}
+.footer {
+    background-color: #757882; /* Fond gris */
+    color: white; /* Couleur du texte */
+    padding: 20px 0; /* Espacement vertical */
+    text-align: center; /* Centrer le texte */
+}
+
+.footer-content {
+    display: flex; /* Utiliser flexbox pour le layout */
+    justify-content: space-around; /* Espacement entre les sections */
+    max-width: 1200px; /* Largeur maximale */
+    margin: 0 auto; /* Centrer le footer */
+}
+
+.footer-section {
+    flex: 1; /* Chaque section prend un espace égal */
+    padding: 10px; /* Espacement interne */
+}
+
+.footer-section h4 {
+    margin-bottom: px; /* Espacement sous le titre */
+}
+
+.footer-section p, .footer-section ul {
+    margin: 0; /* Supprimer les marges par défaut */
+}
+
+.footer-section ul {
+    list-style-type: none; /* Supprimer les puces */
+    padding: 0; /* Supprimer le padding */
+}
+
+.footer-section ul li {
+    margin: 5px 0; /* Espacement entre les éléments de la liste */
+}
+
+.footer-section a {
+    color: white; /* Couleur des liens */
+    text-decoration: none; /* Supprimer le soulignement */
+}
+
+.footer-section a:hover {
+    text-decoration: underline; /* Souligner au survol */
+}
+
+.footer-bottom {
+    margin-top: 10px; /* Espacement au-dessus du bas du footer */
+    font-size: 14px; /* Taille de police plus petite */
+}

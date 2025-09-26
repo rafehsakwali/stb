@@ -1,0 +1,50 @@
+<div class="fiche-container" *ngIf="fiche; else loading">
+  <h2>FICHE D'INSPECTION DU VÉHICULE</h2>
+
+  <div class="fiche-sections">
+    
+    <!-- Informations générales -->
+    <div class="section">
+      <h3>Informations générales</h3>
+      <p><strong>Commande Travaux:</strong> {{ fiche.commandeTravaux }}</p>
+      <p><strong>Agent:</strong> {{ fiche.agent }}</p>
+      <p><strong>Nom et Prénom:</strong> {{ fiche.nomPrenom }}</p>
+      <p><strong>Téléphone:</strong> {{ fiche.telephone }}</p>
+      <p><strong>Immatriculation:</strong> {{ fiche.immatriculation }}</p>
+      <p><strong>VIN:</strong> {{ fiche.vin }}</p>
+      <p><strong>Kilométrage:</strong> {{ fiche.kilometrage }}</p>
+      <p><strong>Motorisation:</strong> {{ fiche.motorisation }}</p>
+      <p><strong>ID Rendez-vous:</strong> {{ fiche.idRendezVous }}</p>
+    </div>
+
+    <!-- Contrôles du véhicule -->
+    <div class="section">
+      <h3>Contrôles du véhicule</h3>
+      <p><strong>Plaques et Police:</strong> {{ fiche.plaquesPolice }}</p>
+      <p><strong>Vitres et Pare-brise:</strong> {{ fiche.vitresPareBrise }}</p>
+      <p><strong>Balais Essuie-Glace:</strong> {{ fiche.balaisEssuieGlace }}</p>
+      <p><strong>Eclairage:</strong> {{ fiche.eclairage }}</p>
+      <p><strong>Rétroviseurs:</strong> {{ fiche.retroviseurs }}</p>
+      <p><strong>Pneus:</strong> {{ fiche.pneus }}</p>
+      <p><strong>Commentaires tour:</strong> {{ fiche.commentaireTour }}</p>
+    </div>
+
+    <!-- Autres contrôles -->
+    <div class="section">
+      <h3>Autres contrôles</h3>
+      <p><strong>Contrôle véhicule:</strong> {{ fiche.controleVehicule }}</p>
+      <p><strong>Commentaires 40 points:</strong> {{ fiche.commentaire40Points }}</p>
+      <p><strong>Contrôle capot:</strong> {{ fiche.controleCapot }}</p>
+      <p><strong>Commentaire capot:</strong> {{ fiche.commentaireCapot }}</p>
+      <p><strong>Contrôle sous véhicule:</strong> {{ fiche.controleSousVehicule }}</p>
+      <p><strong>Commentaire sous véhicule:</strong> {{ fiche.commentaireSousVehicule }}</p>
+      <p><strong>Autres prestations:</strong> {{ fiche.autresPrestations }}</p>
+      <p><strong>Commentaires prestations:</strong> {{ fiche.commentairePrestations }}</p>
+    </div>
+
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Chargement de la fiche...</p>
+</ng-template>
